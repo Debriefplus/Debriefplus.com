@@ -33,7 +33,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -51,7 +51,7 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       text-decoration: none;
     }
 
@@ -90,17 +90,14 @@
 
     .nav-cta:hover { opacity: 0.85; }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       background: var(--black);
       color: var(--white);
       padding: 140px 32px 100px;
     }
 
-    .hero-inner {
-      max-width: 960px;
-      margin: 0 auto;
-    }
+    .hero-inner { max-width: 960px; margin: 0 auto; }
 
     .hero-eyebrow {
       display: inline-flex;
@@ -127,10 +124,7 @@
       margin-bottom: 24px;
     }
 
-    .hero h1 em {
-      font-style: normal;
-      color: var(--blue);
-    }
+    .hero h1 em { font-style: normal; color: var(--blue); }
 
     .hero-sub {
       font-size: clamp(15px, 1.8vw, 18px);
@@ -140,11 +134,7 @@
       margin-bottom: 44px;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .btn-primary {
       background: var(--blue);
@@ -176,7 +166,7 @@
 
     .btn-ghost:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
 
-    /* ── TRUST BAR ── */
+    /* TRUST BAR */
     .trust-bar {
       border-bottom: 1px solid var(--gray-200);
       padding: 14px 32px;
@@ -203,14 +193,9 @@
       font-family: 'IBM Plex Mono', monospace;
     }
 
-    .trust-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--gray-400);
-      flex-shrink: 0;
-    }
+    .trust-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gray-400); flex-shrink: 0; }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section { padding: 88px 32px; }
     .container { max-width: 960px; margin: 0 auto; }
 
@@ -232,14 +217,9 @@
       margin-bottom: 16px;
     }
 
-    .section-sub {
-      font-size: 16px;
-      color: var(--gray-600);
-      max-width: 520px;
-      line-height: 1.65;
-    }
+    .section-sub { font-size: 16px; color: var(--gray-600); max-width: 520px; line-height: 1.65; }
 
-    /* ── HOW IT WORKS ── */
+    /* HOW IT WORKS */
     .how-bg {
       background: var(--gray-50);
       border-top: 1px solid var(--gray-200);
@@ -257,10 +237,7 @@
       background: var(--gray-200);
     }
 
-    .step {
-      background: var(--white);
-      padding: 36px 32px;
-    }
+    .step { background: var(--white); padding: 36px 32px; }
 
     .step-num {
       font-size: 11px;
@@ -271,20 +248,10 @@
       margin-bottom: 16px;
     }
 
-    .step h3 {
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-    }
+    .step h3 { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .step p { font-size: 14px; color: var(--gray-600); line-height: 1.65; }
 
-    .step p {
-      font-size: 14px;
-      color: var(--gray-600);
-      line-height: 1.65;
-    }
-
-    /* ── CONFIDENTIALITY BLOCK ── */
+    /* CONFIDENTIALITY */
     .conf-block {
       background: var(--black);
       border-radius: 10px;
@@ -302,11 +269,7 @@
       margin-bottom: 10px;
     }
 
-    .conf-block > p {
-      color: rgba(255,255,255,0.4);
-      font-size: 15px;
-      max-width: 480px;
-    }
+    .conf-block > p { color: rgba(255,255,255,0.4); font-size: 15px; max-width: 480px; }
 
     .conf-grid {
       display: grid;
@@ -324,15 +287,9 @@
       line-height: 1.55;
     }
 
-    .conf-check {
-      color: var(--blue);
-      font-weight: 700;
-      flex-shrink: 0;
-      font-size: 13px;
-      margin-top: 1px;
-    }
+    .conf-check { color: var(--blue); font-weight: 700; flex-shrink: 0; font-size: 13px; margin-top: 1px; }
 
-    /* ── WHY ── */
+    /* WHY */
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -344,33 +301,12 @@
       background: var(--gray-200);
     }
 
-    .why-card {
-      background: var(--white);
-      padding: 32px;
-    }
+    .why-card { background: var(--white); padding: 32px; }
+    .why-card h3 { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .why-card p { font-size: 13px; color: var(--gray-600); line-height: 1.65; }
+    .why-num { font-size: 11px; font-weight: 600; color: var(--gray-400); font-family: 'IBM Plex Mono', monospace; margin-bottom: 14px; }
 
-    .why-card h3 {
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-    }
-
-    .why-card p {
-      font-size: 13px;
-      color: var(--gray-600);
-      line-height: 1.65;
-    }
-
-    .why-num {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--gray-400);
-      font-family: 'IBM Plex Mono', monospace;
-      margin-bottom: 14px;
-    }
-
-    /* ── INDUSTRIES ── */
+    /* INDUSTRIES */
     .industries-bg {
       background: var(--gray-50);
       border-top: 1px solid var(--gray-200);
@@ -388,44 +324,16 @@
       background: var(--gray-200);
     }
 
-    .industry-card {
-      background: var(--white);
-      padding: 28px 20px;
-      text-align: center;
-      transition: background 0.15s;
-    }
-
+    .industry-card { background: var(--white); padding: 28px 20px; text-align: center; transition: background 0.15s; }
     .industry-card:hover { background: var(--gray-50); }
-
     .industry-icon { font-size: 24px; margin-bottom: 10px; }
+    .industry-card h3 { font-size: 13px; font-weight: 700; letter-spacing: 0.01em; margin-bottom: 5px; }
+    .industry-card p { font-size: 11px; color: var(--gray-400); line-height: 1.5; }
 
-    .industry-card h3 {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      margin-bottom: 5px;
-    }
+    /* FOR ORGS */
+    .org-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; margin-top: 52px; }
 
-    .industry-card p {
-      font-size: 11px;
-      color: var(--gray-400);
-      line-height: 1.5;
-    }
-
-    /* ── FOR ORGS ── */
-    .org-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 52px;
-      align-items: start;
-      margin-top: 52px;
-    }
-
-    .org-points {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-    }
+    .org-points { list-style: none; display: flex; flex-direction: column; }
 
     .org-points li {
       display: flex;
@@ -440,37 +348,12 @@
     .org-points li:first-child { padding-top: 0; }
     .org-points li:last-child { border-bottom: none; }
 
-    .arrow {
-      color: var(--blue);
-      font-weight: 700;
-      flex-shrink: 0;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      margin-top: 3px;
-    }
+    .arrow { color: var(--blue); font-weight: 700; flex-shrink: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; margin-top: 3px; }
 
-    .contact-box {
-      background: var(--black);
-      border-radius: 10px;
-      padding: 36px;
-      color: var(--white);
-    }
-
+    .contact-box { background: var(--black); border-radius: 10px; padding: 36px; color: var(--white); }
     .contact-box .section-label { color: rgba(255,255,255,0.3); }
-
-    .contact-box h3 {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-    }
-
-    .contact-box p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 28px;
-      line-height: 1.65;
-    }
+    .contact-box h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .contact-box p { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 28px; line-height: 1.65; }
 
     .contact-box a.cta-btn {
       display: block;
@@ -500,7 +383,7 @@
 
     .contact-box a.secondary:hover { color: rgba(255,255,255,0.5); }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       background: var(--black);
       color: rgba(255,255,255,0.3);
@@ -518,31 +401,12 @@
       gap: 24px;
     }
 
-    .footer-wordmark {
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 6px;
-    }
-
-    .footer-left p {
-      font-size: 12px;
-      max-width: 320px;
-      line-height: 1.6;
-    }
-
-    .footer-right {
-      font-size: 12px;
-      font-family: 'IBM Plex Mono', monospace;
-      text-align: right;
-      line-height: 2;
-    }
-
+    .footer-wordmark { font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 6px; }
+    .footer-left p { font-size: 12px; max-width: 320px; line-height: 1.6; }
+    .footer-right { font-size: 12px; font-family: 'IBM Plex Mono', monospace; text-align: right; line-height: 2; }
     .footer-right a { color: var(--blue); text-decoration: none; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 680px) {
       nav { padding: 0 16px; }
       .nav-links { display: none; }
@@ -559,11 +423,15 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
-        <path d="M8 6h7.5C20.747 6 25 10.253 25 16s-4.253 10-9.5 10H8V6z" fill="white" fill-opacity="0.07"/>
-        <rect x="14.5" y="10" width="3" height="12" rx="1.5" fill="white"/>
-        <rect x="10" y="13.5" width="12" height="3" rx="1.5" fill="white"/>
+      <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <mask id="m">
+            <path d="M10 5 H40 Q88 5 88 50 Q88 95 40 95 H10 Z" fill="white"/>
+            <rect x="19" y="43" width="62" height="13" rx="2" fill="black"/>
+            <rect x="43" y="19" width="13" height="62" rx="2" fill="black"/>
+          </mask>
+        </defs>
+        <path d="M10 5 H40 Q88 5 88 50 Q88 95 40 95 H10 Z" fill="#0a0a0a" mask="url(#m)"/>
       </svg>
       <span class="nav-wordmark">Debrief+</span>
     </a>
