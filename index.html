@@ -418,7 +418,161 @@
       .conf-block { padding: 28px 24px; }
       .trust-bar { padding: 12px 20px; }
     }
-  </style>
+    /* DEMO */
+    .demo-wrap { margin-top: 48px; }
+    .demo-title { font-size: clamp(18px, 2.5vw, 24px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .demo-sub { font-size: 14px; color: var(--gray-600); margin-bottom: 36px; }
+
+    .demo-layout {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    /* iPhone shell */
+    .iphone {
+      flex-shrink: 0;
+      width: 260px;
+      background: #1a1a1a;
+      border-radius: 40px;
+      padding: 16px 10px 20px;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    .iphone-notch {
+      width: 80px;
+      height: 24px;
+      background: #1a1a1a;
+      border-radius: 0 0 16px 16px;
+      margin: 0 auto 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .iphone-screen {
+      background: #f2f2f7;
+      border-radius: 28px;
+      overflow: hidden;
+      height: 460px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .iphone-home {
+      width: 100px;
+      height: 4px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 2px;
+      margin: 12px auto 0;
+    }
+
+    .chat-header {
+      background: #f2f2f7;
+      padding: 12px 14px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .chat-avatar {
+      width: 32px;
+      height: 32px;
+      background: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+
+    .chat-name { font-size: 12px; font-weight: 700; color: #000; }
+    .chat-status { font-size: 10px; color: #8e8e93; }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      scroll-behavior: smooth;
+    }
+
+    .chat-messages::-webkit-scrollbar { display: none; }
+
+    .msg {
+      max-width: 82%;
+      padding: 8px 11px;
+      border-radius: 16px;
+      font-size: 11.5px;
+      line-height: 1.45;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .msg.visible { opacity: 1; transform: translateY(0); }
+
+    .msg-in {
+      background: white;
+      color: #000;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg-out {
+      background: #1a6bff;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .msg-out.report {
+      background: #0a0a0a;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+    }
+
+    /* Side notes */
+    .demo-notes {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 8px;
+    }
+
+    .demo-note {
+      opacity: 0.25;
+      transition: opacity 0.4s ease;
+    }
+
+    .demo-note.active { opacity: 1; }
+
+    .demo-note-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--blue);
+      font-family: 'IBM Plex Mono', monospace;
+      margin-bottom: 6px;
+    }
+
+    .demo-note p { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+    @media (max-width: 680px) {
+      .demo-layout { flex-direction: column; align-items: center; }
+      .demo-notes { display: none; }
+    }
+
+  
 </head>
 <body>
 
@@ -504,6 +658,51 @@
           <div class="conf-item"><span class="conf-check">→</span><span>Not connected to management or HR systems</span></div>
           <div class="conf-item"><span class="conf-check">→</span><span>Voluntary and non-punitive, full stop</span></div>
           <div class="conf-item"><span class="conf-check">→</span><span>Built by people who work in the field</span></div>
+        </div>
+      </div>
+
+      <!-- EXAMPLE CONVERSATION -->
+      <div class="demo-wrap">
+        <div class="section-label" style="margin-top:52px;">Example conversation</div>
+        <h3 class="demo-title">See what a report looks like in practice.</h3>
+        <p class="demo-sub">A flight crew member reports a fume event mid-conversation, from their phone, in about four minutes.</p>
+
+        <div class="demo-layout">
+          <!-- iPhone shell -->
+          <div class="iphone">
+            <div class="iphone-notch"></div>
+            <div class="iphone-screen" id="chat-screen">
+              <div class="chat-header">
+                <div class="chat-avatar">D+</div>
+                <div>
+                  <div class="chat-name">Debrief+</div>
+                  <div class="chat-status">SMS · Confidential</div>
+                </div>
+              </div>
+              <div class="chat-messages" id="chat-messages"></div>
+            </div>
+            <div class="iphone-home"></div>
+          </div>
+
+          <!-- Side labels -->
+          <div class="demo-notes">
+            <div class="demo-note" data-step="0">
+              <div class="demo-note-num">01</div>
+              <p>AI opens with a clear confidentiality statement so the reporter knows they're safe.</p>
+            </div>
+            <div class="demo-note" data-step="3">
+              <div class="demo-note-num">02</div>
+              <p>One question at a time — no overwhelming form. Reporter answers in their own words.</p>
+            </div>
+            <div class="demo-note" data-step="6">
+              <div class="demo-note-num">03</div>
+              <p>AI knows aviation — asks about tail number, phase of flight, crew symptoms.</p>
+            </div>
+            <div class="demo-note" data-step="9">
+              <div class="demo-note-num">04</div>
+              <p>REPORT triggers structured output straight to the safety committee database.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -636,5 +835,61 @@
     </div>
   </footer>
 
+  <script>
+    const messages = [
+      { type: 'in',  text: "Hi — this is Debrief+. This conversation is completely confidential and non-punitive. Nothing you say here can be used against you. When you're ready, tell me what happened.", step: 0 },
+      { type: 'out', text: "We had a fume event on descent into SFO. Weird smell in the cockpit, kind of like dirty socks or oil.", step: 1 },
+      { type: 'in',  text: "Thanks for reporting this. What was the tail number of the aircraft?", step: 2 },
+      { type: 'out', text: "N482UA", step: 3 },
+      { type: 'in',  text: "Got it. What phase of flight when you first noticed the odor?", step: 3 },
+      { type: 'out', text: "About FL180 on descent, maybe 25 min out.", step: 4 },
+      { type: 'in',  text: "Did either crew member experience any symptoms — headache, eye irritation, dizziness, or anything else?", step: 6 },
+      { type: 'out', text: "I had a mild headache by the time we landed. FO said eyes were a little irritated.", step: 7 },
+      { type: 'in',  text: "Was the bleed air system modified or were any packs switched during the event?", step: 8 },
+      { type: 'out', text: "No changes. We just landed and got off.", step: 9 },
+      { type: 'in',  text: "Understood. When you're ready to submit, reply REPORT and I'll send this to your safety committee.", step: 9 },
+      { type: 'out', text: "REPORT", step: 9, cls: 'report' },
+      { type: 'in',  text: "✓ Report submitted. Thank you — your safety committee has it. Stay safe.", step: 9 },
+    ];
+
+    const container = document.getElementById('chat-messages');
+    const notes = document.querySelectorAll('.demo-note');
+    let current = 0;
+    let started = false;
+
+    function showNext() {
+      if (current >= messages.length) return;
+      const m = messages[current];
+      const div = document.createElement('div');
+      div.className = 'msg msg-' + m.type + (m.cls ? ' ' + m.cls : '');
+      div.textContent = m.text;
+      container.appendChild(div);
+      requestAnimationFrame(() => { requestAnimationFrame(() => { div.classList.add('visible'); }); });
+      container.scrollTop = container.scrollHeight;
+
+      // Activate the matching side note
+      notes.forEach(n => {
+        if (parseInt(n.dataset.step) <= m.step) n.classList.add('active');
+      });
+
+      current++;
+      if (current < messages.length) {
+        const delay = messages[current].type === 'in' ? 1200 : 800;
+        setTimeout(showNext, delay);
+      }
+    }
+
+    // Start when section scrolls into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !started) {
+          started = true;
+          setTimeout(showNext, 600);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(document.getElementById('chat-messages'));
+  </script>
 </body>
 </html>
