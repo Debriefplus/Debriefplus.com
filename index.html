@@ -571,8 +571,7 @@
       .demo-layout { flex-direction: column; align-items: center; }
       .demo-notes { display: none; }
     }
-
-  
+  </style>
 </head>
 <body>
 
@@ -836,6 +835,7 @@
   </footer>
 
   <script>
+  document.addEventListener('DOMContentLoaded', function() {
     const messages = [
       { type: 'in',  text: "Hi — this is Debrief+. This conversation is completely confidential and non-punitive. Nothing you say here can be used against you. When you're ready, tell me what happened.", step: 0 },
       { type: 'out', text: "We had a fume event on descent into SFO. Weird smell in the cockpit, kind of like dirty socks or oil.", step: 1 },
@@ -889,7 +889,9 @@
       });
     }, { threshold: 0.3 });
 
-    observer.observe(document.getElementById('chat-messages'));
+    const target = document.querySelector('.demo-wrap');
+    if (target) observer.observe(target);
+  });
   </script>
 </body>
 </html>
