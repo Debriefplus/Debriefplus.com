@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fume Event Resources | FFT ALPA Environmental Safety</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #e85d1a;
+      --orange-dark: #c94d10;
+      --teal: #1a7a6e;
+      --teal-dark: #155f56;
+      --teal-light: #e8f5f3;
+      --white: #ffffff;
+      --off-white: #f5f6f8;
+      --gray-100: #eef0f2;
+      --gray-200: #dde0e5;
+      --gray-400: #9ba3ae;
+      --gray-600: #5a6472;
+      --gray-800: #2b3240;
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+      --shadow-md: 0 4px 18px rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--gray-800);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 32px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-left { display: flex; align-items: center; gap: 14px; }
+    .nav-globe {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--teal); color: white;
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px; font-weight: 900; letter-spacing: 0.04em;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-name { font-family: 'Raleway', sans-serif; font-size: 14px; font-weight: 800; color: var(--gray-800); }
+    .nav-sub { font-size: 11px; color: var(--gray-400); margin-top: 1px; }
+    .nav-right { display: flex; gap: 6px; align-items: center; }
+    .nav-link {
+      font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--gray-600); text-decoration: none;
+      padding: 8px 14px; border-radius: 4px;
+      transition: color .15s, background .15s;
+    }
+    .nav-link:hover { color: var(--orange); background: rgba(232,93,26,0.06); }
+    .nav-btn {
+      background: var(--teal) !important; color: white !important;
+      padding: 8px 16px; border-radius: 5px;
+      font-size: 11px !important; font-weight: 800 !important;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      transition: background .15s !important;
+    }
+    .nav-btn:hover { background: var(--teal-dark) !important; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #e85d1a 0%, #c0420d 45%, #9a3008 100%);
+      color: white; padding: 56px 32px 52px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(60deg, rgba(255,255,255,0.04) 25%, transparent 25%),
+        linear-gradient(-60deg, rgba(255,255,255,0.04) 25%, transparent 25%),
+        linear-gradient(60deg, transparent 75%, rgba(255,255,255,0.04) 75%),
+        linear-gradient(-60deg, transparent 75%, rgba(255,255,255,0.04) 75%);
+      background-size: 70px 70px;
+      background-position: 0 0, 0 35px, 35px -35px, -35px 0;
+    }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); margin-bottom: 10px;
+    }
+    .hero h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(26px, 4.5vw, 44px);
+      font-weight: 900; line-height: 1.1; letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px; color: rgba(255,255,255,0.78);
+      max-width: 520px; line-height: 1.7; margin-bottom: 28px;
+    }
+    .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white; font-size: 12px; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px; letter-spacing: 0.02em;
+    }
+
+    /* ALERT */
+    .alert-strip {
+      background: var(--teal); color: white;
+      padding: 13px 32px; display: flex; align-items: center; gap: 12px;
+      font-size: 13px;
+    }
+    .alert-dot {
+      width: 8px; height: 8px; background: #7ff4d8;
+      border-radius: 50%; flex-shrink: 0;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .alert-strip strong { font-weight: 700; }
+    .alert-strip a { color: #7ff4d8; font-weight: 700; text-decoration: none; }
+    .alert-strip a:hover { text-decoration: underline; }
+
+    /* LAYOUT */
+    .page-body { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+    .section-head { margin-bottom: 24px; }
+    .eyebrow {
+      font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 6px;
+    }
+    .section-heading {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 900; color: var(--gray-800);
+      letter-spacing: -0.01em; line-height: 1.2;
+    }
+    .section-desc { font-size: 13px; color: var(--gray-600); line-height: 1.7; margin-top: 6px; max-width: 580px; }
+    .divider { border: none; border-top: 1px solid var(--gray-200); margin: 44px 0; }
+
+    /* ── ACCORDION CARDS ── */
+    .accordion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .acc-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .acc-trigger {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 20px 22px;
+      display: flex; align-items: center; gap: 14px;
+      text-align: left;
+      transition: background .15s;
+    }
+    .acc-trigger:hover { background: var(--off-white); }
+    .acc-trigger.open { background: var(--teal-light); }
+
+    .acc-icon {
+      width: 42px; height: 42px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .icon-blue { background: #e8f0fe; }
+    .icon-teal { background: var(--teal-light); }
+    .icon-amber { background: #fff4e6; }
+    .icon-red { background: #fde8e8; }
+    .icon-purple { background: #f3e8ff; }
+    .icon-green { background: #e8f5ec; }
+
+    .acc-label { flex: 1; }
+    .acc-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px; font-weight: 800;
+      color: var(--gray-800); line-height: 1.3;
+      display: block;
+    }
+    .acc-meta {
+      font-size: 11px; color: var(--gray-400);
+      margin-top: 2px; display: block;
+    }
+
+    .acc-chevron {
+      color: var(--gray-400); font-size: 18px;
+      transition: transform .25s;
+      flex-shrink: 0; line-height: 1;
+    }
+    .acc-trigger.open .acc-chevron { transform: rotate(180deg); color: var(--teal); }
+
+    .acc-body {
+      display: none;
+      padding: 0 22px 22px;
+      border-top: 1px solid var(--gray-100);
+    }
+    .acc-body.open { display: block; }
+
+    /* body content styles */
+    .acc-body p {
+      font-size: 13px; color: var(--gray-600); line-height: 1.7;
+      margin-bottom: 14px; margin-top: 14px;
+    }
+
+    .item-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .item-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 13px; color: var(--gray-800); line-height: 1.5;
+    }
+    .item-list li:last-child { border-bottom: none; }
+    .item-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal); flex-shrink: 0; margin-top: 6px;
+    }
+    .item-dot.orange { background: var(--orange); }
+    .item-dot.red { background: #ef4444; }
+
+    .item-list li strong { color: var(--gray-800); font-weight: 700; display: block; }
+    .item-list li span { color: var(--gray-600); font-size: 12px; }
+
+    .urgent-tag {
+      display: inline-block;
+      background: #fde8e8; color: #c0392b;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 3px;
+      margin-left: 6px; vertical-align: middle;
+    }
+
+    .quote-box {
+      background: var(--teal-light);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: 13px; font-style: italic;
+      color: var(--teal-dark); line-height: 1.65;
+    }
+
+    .warn-box {
+      background: #fff8e6;
+      border-left: 3px solid var(--orange);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px; margin: 14px 0;
+      font-size: 12px; color: #7a4a00; line-height: 1.6;
+    }
+    .warn-box strong { color: var(--orange-dark); }
+
+    .co-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 12px 0; border-radius: 6px; overflow: hidden; }
+    .co-table th { background: var(--gray-100); color: var(--gray-800); font-weight: 700; padding: 8px 10px; text-align: left; }
+    .co-table td { padding: 8px 10px; border-top: 1px solid var(--gray-100); color: var(--gray-700); }
+    .co-table tr:last-child td { color: #c0392b; font-weight: 600; }
+
+    .sub-heading {
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--teal); margin: 16px 0 8px;
+    }
+
+    /* CONTACTS */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .contact-card {
+      background: white; border: 1px solid var(--gray-200);
+      border-radius: 10px; padding: 20px; box-shadow: var(--shadow-sm);
+    }
+    .contact-icon {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: var(--teal-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; margin-bottom: 10px;
+    }
+    .contact-icon.orange { background: #fff0e8; }
+    .contact-card.orange-card { border-color: rgba(232,93,26,0.25); border-width: 2px; }
+    .contact-card.orange-card .contact-label { color: var(--orange); }
+    .contact-card.orange-card h3 { color: var(--orange-dark); }
+    .contact-link.orange { color: var(--orange); }
+
+    .dual-numbers { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+    .dual-num-row { display: flex; flex-direction: column; gap: 1px; }
+    .dual-num-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-400); }
+    .dual-num-val { font-size: 14px; font-weight: 800; font-family: 'Raleway', sans-serif; color: var(--teal); }
+    .contact-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-400); }
+    .contact-card h3 { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 800; color: var(--gray-800); margin: 3px 0 5px; line-height: 1.3; }
+    .contact-card p { font-size: 12px; color: var(--gray-600); line-height: 1.6; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 700; color: var(--teal);
+      text-decoration: none; margin-top: 10px;
+    }
+    .contact-link:hover { opacity: .7; }
+
+    /* REPORT CARDS */
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .report-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 22px 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .report-card.esc-card {
+      border-color: rgba(26,122,110,0.3);
+      border-width: 2px;
+    }
+
+    .report-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .report-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .report-icon {
+      width: 40px; height: 40px;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+
+    .report-name {
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px; font-weight: 800;
+      color: var(--gray-800); line-height: 1.2;
+    }
+
+    .report-system {
+      font-size: 11px; font-weight: 600;
+      color: var(--gray-400);
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+
+    .deadline-badge {
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 4px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+
+    .deadline-badge.red { background: #fde8e8; color: #c0392b; }
+    .deadline-badge.amber { background: #fff4e0; color: #a05c00; }
+    .deadline-badge.teal { background: var(--teal-light); color: var(--teal-dark); }
+
+    .report-desc {
+      font-size: 13px; color: var(--gray-600); line-height: 1.65;
+    }
+
+    .report-footer {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .report-link {
+      font-size: 12px; font-weight: 700;
+      color: var(--teal); text-decoration: none;
+      transition: opacity .15s;
+    }
+    .report-link:hover { opacity: .7; }
+    .report-link.teal { color: var(--teal); }
+
+    .esc-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: var(--teal-light);
+      border-radius: 7px;
+      padding: 12px 14px;
+    }
+
+    .esc-field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .esc-field-label {
+      font-weight: 700;
+      color: var(--teal-dark);
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .esc-field-example {
+      color: var(--gray-400);
+      font-size: 11px;
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--gray-800); color: rgba(255,255,255,0.4);
+      padding: 32px; border-top: 3px solid var(--orange);
+    }
+    .footer-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 12px; }
+    .footer-globe {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--teal); color: white;
+      font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-wordmark { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 900; color: white; }
+    .footer-tagline { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+    .footer-links { font-size: 12px; text-align: right; line-height: 2.2; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-links a:hover { color: white; }
+    .footer-links span { color: rgba(255,255,255,0.2); margin: 0 6px; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 16px; }
+      .nav-right .nav-link:not(.nav-btn) { display: none; }
+      .hero { padding: 44px 16px 40px; }
+      .alert-strip { padding: 12px 16px; font-size: 12px; }
+      .page-body { padding: 28px 14px 60px; }
+      .footer-links { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-globe">FFT</div>
+    <div>
+      <div class="nav-name">Frontier Airlines Pilots · ALPA</div>
+      <div class="nav-sub">Environmental Safety Committee</div>
+    </div>
+  </div>
+  <div class="nav-right">
+    <a href="https://fft.alpa.org/" target="_blank" class="nav-link">MEC Home</a>
+    <a href="https://dart.alpa.org/" target="_blank" class="nav-link">DART</a>
+    <a href="mailto:ESC@alpa.org" class="nav-link nav-btn">ESC@alpa.org</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">FFT ALPA · Environmental Safety Committee</div>
+    <h1>Cabin Air Quality<br>Crew Reference</h1>
+    <p class="hero-sub">What to do, what to say, and who to see after a fume event. Carry this in your kit — use it at any clinic.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">⚠️ Time-sensitive tests inside</span>
+      <span class="hero-pill">✓ Non-punitive</span>
+      <span class="hero-pill">✓ Confidential</span>
+    </div>
+  </div>
+</section>
+
+<!-- ALERT -->
+<div class="alert-strip">
+  <span class="alert-dot"></span>
+  <span>
+    <strong>Had a fume event?</strong> Several tests on this page are time-sensitive — collect specimens within hours of exposure.
+    Questions? <a href="mailto:ESC@alpa.org">ESC@alpa.org</a>
+  </span>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- CONTACTS — shown first -->
+  <div class="section-head">
+    <div class="eyebrow">First — Who to Call</div>
+    <div class="section-heading">Who to Contact</div>
+    <div class="section-desc">Reach one of these before or immediately after seeking medical care. They can advise on documentation, rights, and next steps.</div>
+  </div>
+  <div class="contact-grid" style="margin-bottom: 44px;">
+
+    <!-- ESC -->
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-label">Safety Committee</div>
+      <h3>Environmental Safety Committee</h3>
+      <p>Your primary contact for fume event reporting, medical questions, and committee follow-up.</p>
+      <a class="contact-link" href="mailto:ESC@alpa.org">✉ ESC@alpa.org</a>
+    </div>
+
+    <!-- CIRP -->
+    <div class="contact-card">
+      <div class="contact-icon">🤝</div>
+      <div class="contact-label">Peer Support · Confidential</div>
+      <h3>Critical Incident Response Program (CIRP)</h3>
+      <p>Confidential peer support following a traumatic or critical incident. Fellow pilots trained to help — no reporting obligation.</p>
+      <a class="contact-link" href="https://fft.alpa.org/" target="_blank">→ fft.alpa.org</a>
+    </div>
+
+    <!-- ALPA Hotline — orange -->
+    <div class="contact-card orange-card">
+      <div class="contact-icon orange">🚨</div>
+      <div class="contact-label">ALPA National · 24/7</div>
+      <h3>ALPA Accident / Serious Incident Hotline</h3>
+      <p>Call immediately for any serious in-flight event. Available around the clock. Do not delay for paperwork.</p>
+      <a class="contact-link orange" href="https://www.alpa.org/resources/articles-info/safety/guidance-and-reporting" target="_blank">→ alpa.org/safety</a>
+    </div>
+
+    <!-- Stat-MD + ALPA Aeromedical combined -->
+    <div class="contact-card">
+      <div class="contact-icon">🩺</div>
+      <div class="contact-label">Medical Assistance</div>
+      <h3>Stat-MD &amp; ALPA Aeromedical</h3>
+      <p>Real-time physician consultation and aviation-specific aeromedical support.</p>
+      <div class="dual-numbers">
+        <div class="dual-num-row">
+          <span class="dual-num-label">Stat-MD</span>
+          <a class="contact-link" href="tel:+18005746702" style="font-size:14px; font-weight:800; font-family:'Raleway',sans-serif;">(800) 574-6702</a>
+        </div>
+        <div class="dual-num-row">
+          <span class="dual-num-label">ALPA Aeromedical</span>
+          <a class="contact-link" href="tel:+13033414435" style="font-size:14px; font-weight:800; font-family:'Raleway',sans-serif;">(303) 341-4435</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider" style="margin-top:0; margin-bottom: 40px;" />
+
+  <!-- SECTION 1: What to Say -->
+  <div class="section-head">
+    <div class="eyebrow">Step 1 · Arrive Prepared</div>
+    <div class="section-heading">What to tell your Health Care Provider</div>
+    <div class="section-desc">Tap a card to expand. Bring your phone or print this page — walk the provider through each section.</div>
+  </div>
+
+  <div class="accordion-grid">
+
+    <!-- Card 1: Opening Statement -->
+    <div class="acc-card">
+      <button class="acc-trigger" onclick="toggle(this)">
+        <div class="acc-icon icon-blue">🗣️</div>
+        <div class="acc-label">
+          <span class="acc-title">What to say when you walk in</span>
+          <span class="acc-meta">Read this to your provider verbatim</span>
+        </div>
+        <span class="acc-chevron">⌄</span>
+      </button>
+      <div class="acc-body">
+        <div class="quote-box">
+          "I am a commercial airline pilot. I have suffered an acute occupational exposure to pyrolyzed aviation synthetic engine oils and bleed air contaminants in a confined space."
+        </div>
+        <div class="quote-box">
+          "I am a crew member in your clinic for screening and testing for an inhalation injury, <strong>organophosphate poisoning</strong>, or <strong>carbon monoxide poisoning</strong> following a toxic fume event — sometimes referred to as Aerotoxic Syndrome — in flight."
+        </div>
+        <div class="warn-box">
+          <strong>If the provider is unfamiliar:</strong> Request a referral to a <strong>toxicologist</strong>, <strong>neurologist</strong>, or <strong>occupational medicine physician</strong>. Do not leave without a specimen collection plan.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Which HCPs to see -->
+    <div class="acc-card">
+      <button class="acc-trigger" onclick="toggle(this)">
+        <div class="acc-icon icon-green">🏥</div>
+        <div class="acc-label">
+          <span class="acc-title">Which providers to see</span>
+          <span class="acc-meta">Best specialists for fume event evaluation</span>
+        </div>
+        <span class="acc-chevron">⌄</span>
+      </button>
+      <div class="acc-body">
+        <p>Not all providers are familiar with aviation fume events. Prioritize these specialties:</p>
+        <ul class="item-list">
+          <li><span class="item-dot"></span><div><strong>Occupational Medicine Physician</strong><span>Best first stop — trained in workplace chemical exposures, can order the full panel and document occupational injury</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Toxicologist</strong><span>If organophosphate or CO poisoning is suspected; interprets cholinesterase and CO-Hb levels</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Pulmonologist</strong><span>For respiratory symptoms — orders spirometry, HRCT, FeNO, and bronchial provocation testing</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Neurologist / Neuropsychologist</strong><span>For cognitive symptoms, peripheral neuropathy, gait changes, or tremor after exposure</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Emergency Department</strong><span>For acute symptoms — headache, confusion, chest pain, difficulty breathing. Go immediately.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>AME (Aviation Medical Examiner)</strong><span>Must be notified if symptoms could affect fitness for duty. Coordinate with your union rep first.</span></div></li>
+        </ul>
+        <div class="warn-box">
+          <strong>Avoid urgent care only:</strong> Many urgent care clinics cannot run the specialized tests required. Get to an ED or occupational medicine clinic with lab access.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Immediate Blood Tests -->
+    <div class="acc-card">
+      <button class="acc-trigger" onclick="toggle(this)">
+        <div class="acc-icon icon-red">🩸</div>
+        <div class="acc-label">
+          <span class="acc-title">Immediate blood tests</span>
+          <span class="acc-meta">Time-sensitive — collect ASAP after exposure</span>
+        </div>
+        <span class="acc-chevron">⌄</span>
+      </button>
+      <div class="acc-body">
+        <div class="warn-box"><strong>Time-critical:</strong> Many of these markers have short half-lives and must be collected within hours of exposure to be meaningful.</div>
+        <div class="sub-heading">Priority — Request All of These</div>
+        <ul class="item-list">
+          <li><span class="item-dot red"></span><div><strong>Cholinesterase (RBC) <span class="urgent-tag">URGENT</span></strong><span>For organophosphate (TCP) exposure. Red blood cell cholinesterase reflects acute nerve agent/OP poisoning.</span></div></li>
+          <li><span class="item-dot red"></span><div><strong>Carboxyhemoglobin (CO-Hb) <span class="urgent-tag">URGENT</span></strong><span>Blood marker of carbon monoxide exposure. &gt;3% abnormal in non-smoker. Degrades rapidly — collect immediately.</span></div></li>
+          <li><span class="item-dot red"></span><div><strong>Acetylcholinesterase (AChE) <span class="urgent-tag">URGENT</span></strong><span>Critical nervous system enzyme. Rapidly broken down after organophosphate exposure. Analyze immediately.</span></div></li>
+          <li><span class="item-dot red"></span><div><strong>VOC Human Biomonitoring (HBM) <span class="urgent-tag">URGENT</span></strong><span>Measures toxic compounds or metabolites in blood, urine, or exhaled air. Short half-life — must be collected shortly after exposure.</span></div></li>
+          <li><span class="item-dot red"></span><div><strong>Arterial Blood Gas (ABG)</strong><span>Detects poisonings, hypoxia. Includes arterial CO-Hb measurement.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Butyl Cholinesterase (BChE)</strong><span>Primary bioscavenger — binds organophosphates before they reach the CNS. Influenced by TCPs.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Serum / Plasma Cholinesterase (PChE)</strong><span>Detects organophosphate poisoning and occupational chemical exposure. Influenced by TCPs.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Organophosphate Human Biomonitoring (OP-HBM)</strong><span>TCP, TXP, TBP, TPP, DBPP, TiBP, BHT, PIP and metabolites (DoCP, DmCP, DpCP, DBP, DPP)</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Serum C-Reactive Protein (CRP)</strong><span>Inflammation marker — elevated after organophosphate exposure.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Neuropathy Target Esterase (NTE)</strong><span>Biomarker for organophosphate exposure via blood or lymphocyte assay.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Pulse Oximetry (SpO2)</strong><span>Continuous monitoring of blood oxygen saturation.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Comprehensive Metabolic Panel (CMP)</strong><span>Baseline organ function assessment.</span></div></li>
+        </ul>
+
+        <div class="sub-heading">CO-Hb Level Interpretation</div>
+        <table class="co-table">
+          <tr><th>Level</th><th>Interpretation</th><th>Action</th></tr>
+          <tr><td>&lt;3%</td><td>Normal (non-smoker)</td><td>Document and monitor</td></tr>
+          <tr><td>&gt;10%</td><td>Abnormal</td><td>Supplemental oxygen required</td></tr>
+          <tr><td>15–20%</td><td>Severe</td><td>Headache, dizziness, nausea common</td></tr>
+          <tr><td>&gt;25–30%</td><td>Life-threatening</td><td>Emergency intervention — consider HBOT</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Card 4: Additional Blood Labs -->
+    <div class="acc-card">
+      <button class="acc-trigger" onclick="toggle(this)">
+        <div class="acc-icon icon-amber">🧪</div>
+        <div class="acc-label">
+          <span class="acc-title">Additional blood labs</span>
+          <span class="acc-meta">Secondary panel — request same visit</span>
+        </div>
+        <span class="acc-chevron">⌄</span>
+      </button>
+      <div class="acc-body">
+        <p>Request these alongside the immediate panel. Not as time-critical but important for baseline and documentation.</p>
+        <ul class="item-list">
+          <li><span class="item-dot"></span><div><strong>Methemoglobin (MetHb)</strong><span>Dysfunctional hemoglobin — cannot carry oxygen. Healthy level &lt;1.5–2%.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Complete Blood Count (CBC / FBC)</strong><span>Baseline blood cell counts.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Comprehensive Metabolic Panel (CMP)</strong><span>Electrolytes, kidney function, glucose.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Liver Function Tests (LFTs) / Liver Transaminases</strong><span>Hepatotoxicity screening.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Creatinine (Cr)</strong><span>Kidney function assessment.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Blood Glucose</strong><span>Baseline metabolic marker.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Lactate (LDH)</strong><span>Tissue hypoxia and cell damage marker.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Electrolytes (U&amp;E)</strong><span>Sodium, potassium, chloride, bicarbonate.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>ESR (EDTA)</strong><span>Erythrocyte sedimentation rate — inflammatory marker.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Fibrinogen (Sodium Citrate)</strong><span>Clotting and inflammatory marker.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Creatine Kinase with Isoenzymes</strong><span>Muscle damage assessment.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Muscle Enzymes</strong><span>Troponin, CKMM, CKMB, Aldolase — cardiac and skeletal muscle injury markers.</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 5: Urine Tests -->
+    <div class="acc-card">
+      <button class="acc-trigger" onclick="toggle(this)">
+        <div class="acc-icon icon-amber">🔬</div>
+        <div class="acc-label">
+          <span class="acc-title">Urine tests — organophosphate panel</span>
+          <span class="acc-meta">Time-sensitive — collect same day</span>
+        </div>
+        <span class="acc-chevron">⌄</span>
+      </button>
+      <div class="acc-body">
+        <div class="warn-box"><strong>Time-sensitive:</strong> Organophosphate metabolites and VOCs are excreted in urine within hours. Collect as soon as possible.</div>
+        <p>Request analysis for all of the following:</p>
+        <ul class="item-list">
+          <li><span class="item-dot red"></span><div><strong>Tricresyl Phosphate (TCP)</strong><span>Primary contaminant in Aerotoxic events.</span></div></li>
+          <li><span class="item-dot red"></span><div><strong>TCP Metabolites</strong><span>DoCP, DmCP, DpCP — breakdown products of TCP isomers.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Triphenyl Phosphate (TPP) + metabolite DPP</strong><span>Diphenyl phosphate (DPP).</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Tributyl Phosphate (TBP) + metabolite DBP</strong><span>Dibutyl phosphate (DBP).</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Trixylyl Phosphate (TXP)</strong></div></li>
+          <li><span class="item-dot"></span><div><strong>Dibutyl Phenyl Phosphate (DBPP)</strong></div></li>
+          <li><span class="item-dot"></span><div><strong>Triisobutyl Phosphate (TiBP)</strong></div></li>
+          <li><span class="item-dot"></span><div><strong>2,6-di-tert-butyl-p-cresol (BHT)</strong></div></li>
+          <li><span class="item-dot"></span><div><strong>Isopropylated Phosphate (PIP 3:1 / TIPP)</strong></div></li>
+          <li><span class="item-dot"></span><div><strong>Mixed esters of TCP</strong></div></li>
+          <li><span class="item-dot"></span><div><strong>2,5-Hexanedion</strong><span>Metabolite of n-hexane — solvent exposure marker.</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 6: Lung & Heart -->
+    <div class="acc-card">
+      <button class="acc-trigger" onclick="toggle(this)">
+        <div class="acc-icon icon-blue">🫁</div>
+        <div class="acc-label">
+          <span class="acc-title">Lung & heart evaluation</span>
+          <span class="acc-meta">Imaging, spirometry, cardiac screening</span>
+        </div>
+        <span class="acc-chevron">⌄</span>
+      </button>
+      <div class="acc-body">
+        <div class="sub-heading">Imaging</div>
+        <ul class="item-list">
+          <li><span class="item-dot"></span><div><strong>Posteroanterior (PA) + Lateral Chest X-ray</strong><span>Initial lung and cardiac imaging.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>High Resolution CT Chest (HRCT)</strong><span>Detailed lung structure — identifies inflammation, fibrosis, air trapping.</span></div></li>
+        </ul>
+        <div class="sub-heading">Lung Function</div>
+        <ul class="item-list">
+          <li><span class="item-dot"></span><div><strong>Peak Flow / Spirometry</strong><span>Baseline airflow measurement. Document test date and time.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Lung Diffusion Capacity (DLCO)</strong><span>Gas transfer across alveoli. Note test timing relative to exposure.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Expired Nitric Oxide (FeNO)</strong><span>Airway inflammation marker.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Arterial Blood Gas (ABG)</strong><span>Complete respiratory and metabolic assessment.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Exercise Testing with SpO2 / Blood Gas</strong><span>Stress-induced respiratory assessment.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Ergo Spirometry</strong><span>Spirometry under controlled exercise load.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Bronchial Provocation Testing</strong><span>Reactive airway assessment.</span></div></li>
+        </ul>
+        <div class="sub-heading">Cardiac</div>
+        <ul class="item-list">
+          <li><span class="item-dot"></span><div><strong>ECG (12-lead)</strong><span>Cardiac rhythm and ischemia screening after CO/chemical exposure.</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 7: Neurological -->
+    <div class="acc-card">
+      <button class="acc-trigger" onclick="toggle(this)">
+        <div class="acc-icon icon-purple">🧠</div>
+        <div class="acc-label">
+          <span class="acc-title">Neurological evaluation</span>
+          <span class="acc-meta">If cognitive, sensory, or motor symptoms are present</span>
+        </div>
+        <span class="acc-chevron">⌄</span>
+      </button>
+      <div class="acc-body">
+        <p>Request these if you are experiencing cognitive changes, numbness, tingling, gait disturbances, weakness, tremor, or vision changes after a fume event.</p>
+        <div class="sub-heading">Imaging & Objective Tests</div>
+        <ul class="item-list">
+          <li><span class="item-dot"></span><div><strong>Complete Neurologic Exam</strong><span>Gait, vestibular function, focal deficits, weakness. Must be documented objectively.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>MRI Brain Scan</strong><span>Structural neurological changes.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>PET / SPECT</strong><span>Functional brain imaging — metabolism and perfusion.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Electromyography (EMG)</strong><span>Muscle and motor nerve function testing.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Magnetic Resonance Neurography (MRN)</strong><span>High-resolution peripheral nerve imaging.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Skin Biopsy / ENF</strong><span>Intraepidermal nerve fiber density — small fiber neuropathy assessment.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Autonomic Nervous System Tests / Tilt Table</strong><span>Dysautonomia assessment.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Nerve Conduction Velocity (NCVs)</strong><span>Peripheral nerve conduction assessment.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Quantitative Sensory Testing (QST)</strong><span>Standardized sensory threshold measurement.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Brainstem Audio Evoked Potential</strong><span>Auditory pathway integrity.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Color Desaturation Testing</strong><span>Visual/optic nerve function.</span></div></li>
+        </ul>
+        <div class="sub-heading">Neurocognitive Battery</div>
+        <ul class="item-list">
+          <li><span class="item-dot"></span><div><strong>Neuropsychological Assessment</strong><span>Full battery — processing speed, attention, reaction time, memory, problem-solving, cognitive flexibility</span></div></li>
+          <li><span class="item-dot"></span><div><strong>CALCAP</strong><span>Simple and choice reaction time tests.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Symbol Digit Modalities Test</strong><span>Psychomotor speed and attention.</span></div></li>
+          <li><span class="item-dot"></span><div><strong>Coding Test (WAIS)</strong><span>Processing speed and working memory.</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 8: Symptoms to report -->
+    <div class="acc-card">
+      <button class="acc-trigger" onclick="toggle(this)">
+        <div class="acc-icon icon-teal">📋</div>
+        <div class="acc-label">
+          <span class="acc-title">Symptoms to report to your provider</span>
+          <span class="acc-meta">Document everything — include onset time</span>
+        </div>
+        <span class="acc-chevron">⌄</span>
+      </button>
+      <div class="acc-body">
+        <p>Tell your provider about <strong>any</strong> of the following, and note when they started relative to the event:</p>
+        <ul class="item-list">
+          <li><span class="item-dot orange"></span><span>Metallic or unusual taste in mouth</span></li>
+          <li><span class="item-dot orange"></span><span>Burning or irritation of eyes, throat, or nasal passages</span></li>
+          <li><span class="item-dot orange"></span><span>Headache — location, severity, onset time</span></li>
+          <li><span class="item-dot orange"></span><span>Tingling or numbness in face, hands, or limbs</span></li>
+          <li><span class="item-dot orange"></span><span>Dizziness, lightheadedness, or vertigo</span></li>
+          <li><span class="item-dot orange"></span><span>Nausea or vomiting</span></li>
+          <li><span class="item-dot orange"></span><span>Cognitive changes — confusion, memory gaps, difficulty concentrating</span></li>
+          <li><span class="item-dot orange"></span><span>Vision changes or blurring</span></li>
+          <li><span class="item-dot orange"></span><span>Chest tightness, difficulty breathing, or coughing</span></li>
+          <li><span class="item-dot orange"></span><span>Muscle weakness, tremor, or gait changes</span></li>
+          <li><span class="item-dot orange"></span><span>Any observations reported by other crew members</span></li>
+        </ul>
+        <div class="warn-box">
+          <strong>Document now:</strong> Write down your symptoms and timestamps before this appointment. Memory of acute symptoms fades within hours and is critical for medical and legal documentation.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /accordion-grid -->
+
+  <hr class="divider" />
+
+  <!-- REQUIRED REPORTS -->
+  <div class="section-head">
+    <div class="eyebrow">Mandatory Filing</div>
+    <div class="section-heading">Required Reports</div>
+    <div class="section-desc">All four reports are required after a fume or air quality event. File each independently — they serve different purposes and go to different systems.</div>
+  </div>
+
+  <div class="report-grid">
+
+    <!-- ASAP -->
+    <div class="report-card">
+      <div class="report-card-top">
+        <div class="report-header">
+          <div class="report-icon icon-red">⚡</div>
+          <div>
+            <div class="report-name">ASAP Report</div>
+            <div class="report-system">ProSafeT</div>
+          </div>
+        </div>
+        <div class="deadline-badge red">Within 24 hrs</div>
+      </div>
+      <p class="report-desc">Aviation Safety Action Program report. Submit via ProSafeT as soon as possible after the event — 24-hour window from the time of occurrence.</p>
+      <div class="report-footer">
+        <a class="report-link" href="https://fft.alpa.org/" target="_blank">→ ProSafeT</a>
+      </div>
+    </div>
+
+    <!-- Hazard Report -->
+    <div class="report-card">
+      <div class="report-card-top">
+        <div class="report-header">
+          <div class="report-icon icon-amber">⚠️</div>
+          <div>
+            <div class="report-name">Hazard Report</div>
+            <div class="report-system">ProSafeT</div>
+          </div>
+        </div>
+        <div class="deadline-badge amber">Within 36 hrs of trip</div>
+      </div>
+      <p class="report-desc">Document the safety hazard for trend analysis and systemic tracking. File via ProSafeT within 36 hours of completion of the trip.</p>
+      <div class="report-footer">
+        <a class="report-link" href="https://fft.alpa.org/" target="_blank">→ ProSafeT</a>
+      </div>
+    </div>
+
+    <!-- A/C & MX Report -->
+    <div class="report-card">
+      <div class="report-card-top">
+        <div class="report-header">
+          <div class="report-icon icon-blue">🔧</div>
+          <div>
+            <div class="report-name">A/C &amp; MX Report</div>
+            <div class="report-system">DocuNet</div>
+          </div>
+        </div>
+        <div class="deadline-badge red">ASAP</div>
+      </div>
+      <p class="report-desc">Aircraft and maintenance discrepancy report. File in DocuNet as soon as possible so the aircraft can be flagged and inspected before next departure.</p>
+      <div class="report-footer">
+        <a class="report-link" href="https://fft.alpa.org/" target="_blank">→ DocuNet</a>
+      </div>
+    </div>
+
+    <!-- ESC Report -->
+    <div class="report-card esc-card">
+      <div class="report-card-top">
+        <div class="report-header">
+          <div class="report-icon icon-teal">📊</div>
+          <div>
+            <div class="report-name">ESC Air Quality Report</div>
+            <div class="report-system">ESC@alpa.org</div>
+          </div>
+        </div>
+        <div class="deadline-badge teal">ASAP</div>
+      </div>
+      <p class="report-desc">Sent directly to the Environmental Safety Committee for cabin air quality tracking. Include the following in your email:</p>
+      <div class="esc-fields">
+        <div class="esc-field"><span class="esc-field-label">Flight No.</span><span class="esc-field-example">e.g. F9 412</span></div>
+        <div class="esc-field"><span class="esc-field-label">Date</span><span class="esc-field-example">Date of event</span></div>
+        <div class="esc-field"><span class="esc-field-label">Tail No.</span><span class="esc-field-example">Aircraft tail number</span></div>
+      </div>
+      <div class="report-footer">
+        <a class="report-link teal" href="mailto:ESC@alpa.org">✉ ESC@alpa.org</a>
+      </div>
+    </div>
+
+  </div><!-- /report-grid -->
+
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-globe">FFT</div>
+      <div>
+        <div class="footer-wordmark">FFT Environmental Safety Committee</div>
+        <div class="footer-tagline">Frontier Airlines Pilots · ALPA Master Executive Council</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:ESC@alpa.org">ESC@alpa.org</a><span>·</span>
+      <a href="https://fft.alpa.org" target="_blank">fft.alpa.org</a><span>·</span>
+      <a href="https://dart.alpa.org" target="_blank">DART</a><br>
+      <span style="color:rgba(255,255,255,0.2);font-size:11px;">© 2026 · Confidential · Non-Punitive</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggle(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+  }
+</script>
+
+</body>
+</html>
